@@ -1,8 +1,10 @@
 <?php
 session_start();
 
-
-
+if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+    header("Location: login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -109,7 +111,7 @@ session_start();
 <body>
     <div class="container">
         <!-- Bouton Profil -->
-        <button class="profile-button" onclick="window.location.href='user.php'">
+        <button class="profile-button" onclick="window.location.href='users.php'">
             <i class="fa-solid fa-user"></i>
         </button>
 
